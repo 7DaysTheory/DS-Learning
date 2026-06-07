@@ -1,0 +1,20 @@
+# virtual env
+venv/
+.venv/
+
+# pycharm
+.idea/
+
+# python cache
+__pycache__/
+*.pyc
+
+# env vars
+.env
+
+# mac/windows мусор
+.DS_Store
+Thumbs.db
+
+.csv
+ipynb_checkpoints
