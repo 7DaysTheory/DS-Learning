@@ -1,0 +1,43 @@
+import random
+
+print('Добро пожаловать в числовую угадайку')
+n=input('Введите максимальное число: ')
+def generate_new_number():
+    number = random.randrange(1,int(n)+1)
+    return number
+def is_valid(guess: str) -> bool:
+    return True if guess.isdigit() and 1<=int(guess)<=int(n) else False
+cnt=0
+def game():
+    number=generate_new_number()
+    cnt=0
+    while True:
+        guess=input()
+        if is_valid(guess)==False:
+            print(f'А может быть все-таки введем целое число от 1 до {int(n)}?')
+            cnt+=1
+        else:
+            guess=int(guess)
+            if guess>number:
+                print('Ваше число больше загаданного, попробуйте еще разок')
+                cnt+=1
+            elif guess<number:
+                print('Ваше число меньше загаданного, попробуйте еще разок')
+                cnt+=1
+            else:
+                
+                print(f'Вы угадали за {cnt} попыток, поздравляем!')
+                break
+def continue_game():
+    cnt=0
+    wish = 'y'
+    while wish == 'y':
+        game()
+        cnt+=1
+        wish = input('Хотите сыграть ещё? Y/N:   ').lower()
+    else:
+        print(f'Вы сыграли {cnt} раз!')
+        
+        
+continue_game()
+print('Спасибо, что играли в числовую угадайку. Еще увидимся...')

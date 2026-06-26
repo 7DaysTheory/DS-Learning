@@ -1,0 +1,28 @@
+"""На вход программе подаётся строка текста на английском языке, в которой нужно зашифровать все слова. Каждое слово строки следует зашифровать с помощью шифра Цезаря (циклического сдвига на длину этого слова). Строчные буквы при этом остаются строчными, а прописные – прописными. Гарантируется, что между различными словами присутствует один пробел.
+Формат входных данных 
+На вход программе подаётся строка текста на английском языке.
+Формат выходных данных
+Программа должна вывести зашифрованный текст в соответствии с условием задачи.
+Примечание. Символы, не являющиеся английскими буквами, не изменяются."""
+
+eng_lower_alphabet = 'abcdefghijklmnopqrstuvwxyz'
+eng_upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+phrase=input()
+l=phrase.split()
+out=''
+step=0
+for j in l:
+    step=0
+    for k in range(len(j)):
+        if j[k].isalpha():
+            step+=1
+    for i in range(len(j)):
+        if j[i].islower():
+            dig=eng_lower_alphabet[(eng_lower_alphabet.find(j[i])+step) % 26]
+        elif j[i].isupper():
+            dig=eng_upper_alphabet[(eng_upper_alphabet.find(j[i])+step) % 26]
+        else:
+            dig=j[i]
+        out+=dig
+    out+=' '
+print(out)
