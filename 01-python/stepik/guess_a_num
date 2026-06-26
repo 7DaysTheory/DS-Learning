@@ -13,7 +13,7 @@ def game():
     cnt=0
     while True:
         guess=input()
-        if is_valid(guess)==False:
+        if not is_valid(guess):
             print(f'А может быть все-таки введем целое число от 1 до {int(n)}?')
             cnt+=1
         else:

@@ -8,10 +8,10 @@
 eng_lower_alphabet = 'abcdefghijklmnopqrstuvwxyz'
 eng_upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 phrase=input()
-l=phrase.split()
+lisst=phrase.split()
 out=''
 step=0
-for j in l:
+for j in lisst:
     step=0
     for k in range(len(j)):
         if j[k].isalpha():
